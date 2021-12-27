@@ -1,0 +1,30 @@
+@import 'config';
+
+#puzzle {
+	width: $fieldSize * 9;
+	height: $fieldSize * 9;
+
+	input {
+		width: $fieldSize;
+		height: $fieldSize;
+		border-spacing: 0;
+		border: 1px grey solid;
+	}
+	
+	.odd-section{
+		background-color: lightgray;
+	}
+}
+
+
+.solved{
+	color: darkgreen;
+}
+
+.unsolvable{
+	color: darkred;
+}
+
+.error{
+	color: rgb(206, 206, 0);
+}
