@@ -62,10 +62,10 @@ function solve() {
 		},
 		body: JSON.stringify(data)
 	})
-		.then(response => response.json())
-		.then(data => {
-			console.log(data);
-			populateValues(data.solvable, data.solution);
+		.then(httpResponse => httpResponse.json())
+		.then(responseBodyJsonObject => {
+			console.log(responseBodyJsonObject);
+			populateValues(responseBodyJsonObject.solvable, responseBodyJsonObject.solution);
 		})
 		.catch(err => {
 			console.error('Error: ', err);
