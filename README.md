@@ -1,2 +1,10 @@
 # sudoku-solver
-Simple JavaScript App to solve sudoku puzzle
+Simple JavaScript App for sudoku puzzle solving
+
+
+## Start API
+`npm run start:backend`
+
+
+
+Created to practise APIs, thanks to @kubowania tutorial
