@@ -1,5 +1,5 @@
 # sudoku-solver
-Simple JavaScript App to solve sudoku puzzle
+Simple JavaScript App for sudoku puzzle solving
 
 
 ## Start API
