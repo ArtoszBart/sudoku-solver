@@ -52,27 +52,24 @@ function populateValues(isSolvable, solution) {
 }
 
 function solve() {
-	const data = joinValues();
+	const data = { numbers: joinValues() };
 	console.log('data', data);
-	var options = {
+	fetch('http://localhost:8000/solve', {
 		method: 'POST',
-		url: 'https://solve-sudoku.p.rapidapi.com/',
 		headers: {
 			'content-type': 'application/json',
-			'x-rapidapi-host': 'solve-sudoku.p.rapidapi.com',
-			'x-rapidapi-key': process.env.RAPID_API_KEY
+			'Accept': 'application/json'
 		},
-		data: {
-			puzzle: data
-		}
-	};
-
-	axios.request(options).then(response => {
-		console.log(response.data);
-		populateValues(response.data.solvable, response.data.solution);
-	}).catch(err => {
-		console.error(err);
-	});
+		body: JSON.stringify(data)
+	})
+		.then(response => response.json())
+		.then(data => {
+			console.log(data);
+			populateValues(data.solvable, data.solution);
+		})
+		.catch(err => {
+			console.error('Error: ', err);
+		});
 }
 
 solveBtn.addEventListener('click', solve);

@@ -8,4 +8,27 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.post('/solve', (req, res) => {
+	console.log(req);
+	const options = {
+		method: 'POST',
+		url: 'https://solve-sudoku.p.rapidapi.com/',
+		headers: {
+			'content-type': 'application/json',
+			'x-rapidapi-host': 'solve-sudoku.p.rapidapi.com',
+			'x-rapidapi-key': process.env.RAPID_API_KEY
+		},
+		data: {
+			puzzle: req.body.numbers
+		}
+	};
+
+	axios.request(options).then(response => {
+		console.log(response.data);
+		res.json(response.data);
+	}).catch(err => {
+		console.error(err);
+	});
+});
+
 app.listen(PORT, () => console.log(`Server listening on PORT ${PORT}`));
