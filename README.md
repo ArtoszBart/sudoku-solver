@@ -7,4 +7,4 @@ Simple JavaScript App for sudoku puzzle solving
 
 
 
-Created to practise APIs, thanks to @github/kubowania tutorial
+Created to practise APIs, thanks to @kubowania tutorial
